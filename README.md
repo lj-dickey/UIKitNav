@@ -1,0 +1,5 @@
+As part of dropping support for iOS15, I'm trying to move our app to use the newer navigation architecture for some of its SwiftUI views.  However, these views are shown in the context of the main part of the app being written in UIKit.  So, when the SwiftUI view is pushed on the nav stack, it needs to interact with the existing `UINavigationController,` even when navigating to additional SwiftUI-based screens.  This works with the simple `NavigationLink` that takes both a destination view and a label. However, now that the `init(isActive:destination:label:)` initializer is deprecated, trying to move to the value-based `NavigationLink/navigationDestination` functions just don't work. I'm attaching a sample app that demonstrates the problem.  
+
+Posting this here to see if anyone has a way of working around this with a purely SwiftUI solution?  Otherwise, if we want to get rid of the deprecation warnings, we'll need to kick back to UKIt to manage SwiftUI -> SwiftUI navigation, which seems particularly unfortunate.
+
+
